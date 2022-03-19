@@ -1,0 +1,9 @@
+.cart {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    background-color: bisque;
+    margin: 20px;
+    border: 1px solid blueviolet;
+    border-radius: 20px;
+}
