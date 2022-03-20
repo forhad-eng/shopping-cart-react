@@ -1,8 +1,13 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './Cart.css'
 
-const Cart = ({ image, price, name }) => {
-    const [count, setCount] = useState(1)
+const Cart = ({ image, price, name, count, setPhoneCount, setCaseCount }) => {
+    const increaseHandle = () => {
+        setPhoneCount ? setPhoneCount(count + 1) : setCaseCount(count + 1)
+    }
+    const decreaseHandle = () => {
+        count > 1 && setPhoneCount ? setPhoneCount(count - 1) : setCaseCount(count - 1)
+    }
     return (
         <div className="cart">
             <div style={{ display: 'flex', alignItems: 'center' }}>
@@ -10,12 +15,12 @@ const Cart = ({ image, price, name }) => {
                 <h3>{name}</h3>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-evenly' }}>
-                <button onClick={() => count > 1 && setCount(count - 1)}>-</button>
+                <button onClick={decreaseHandle}>-</button>
                 <h3>Count: {count}</h3>
-                <button onClick={() => setCount(count + 1)}>+</button>
-                <h4>
+                <button onClick={increaseHandle}>+</button>
+                <h3>
                     Price: $<span className="price">{price * count}</span>
-                </h4>
+                </h3>
             </div>
         </div>
     )

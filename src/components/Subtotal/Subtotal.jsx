@@ -1,14 +1,20 @@
 import React from 'react'
+import './Subtotal.css'
 
-const Subtotal = () => {
-    const prices = document.getElementsByClassName('price')
-    let sum = 0
-    for (const price of prices) {
-        sum = sum + parseInt(price.innerText)
-    }
+const Subtotal = ({ price }) => {
+    const tax = price * 0.2
     return (
-        <div>
-            <h3>Total: {sum}</h3>
+        <div className="subtotal">
+            <span>
+                <h4>Subtoal:</h4>
+                <h4>Tax(20%):</h4>
+                <h4>Total:</h4>
+            </span>
+            <span className="price-section">
+                <h4>${price.toFixed(2)}</h4>
+                <h4>${tax.toFixed(2)}</h4>
+                <h4>${(price + tax).toFixed(2)}</h4>
+            </span>
         </div>
     )
 }
