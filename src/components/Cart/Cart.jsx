@@ -6,7 +6,7 @@ const Cart = ({ image, price, name, count, setPhoneCount, setCaseCount }) => {
         setPhoneCount ? setPhoneCount(count + 1) : setCaseCount(count + 1)
     }
     const decreaseHandle = () => {
-        count > 1 && setPhoneCount ? setPhoneCount(count - 1) : setCaseCount(count - 1)
+        setPhoneCount ? count > 1 && setPhoneCount(count - 1) : count > 1 && setCaseCount(count - 1)
     }
     return (
         <div className="cart">
